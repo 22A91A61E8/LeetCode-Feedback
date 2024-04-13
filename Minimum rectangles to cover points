@@ -1,0 +1,17 @@
+class Solution:
+    def minRectanglesToCoverPoints(self, points: List[List[int]], w: int) -> int:
+        l=[]
+        for i in points:
+            l.append(i[0])
+        l=list(set(l))
+        l.sort()
+        c=0
+        m=l[0]
+        for i in l:
+            if i-m>w:
+                c=c+1
+                m=i
+        if l[-1]-m<=w:
+            c=c+1
+        return c
+        
