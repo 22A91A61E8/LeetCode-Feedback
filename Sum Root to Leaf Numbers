@@ -1,0 +1,28 @@
+class Solution {
+public:
+    void tree(TreeNode* root,int &s,int t)
+    {
+        if(root->left==NULL && root->right==NULL)
+        {
+            t=t*10+root->val;
+            s=s+t;
+            return;
+        }
+        if(root->left!=NULL)
+        {
+        tree(root->left,s,t*10+root->val);
+        }
+        if(root->right!=NULL)
+        {
+            tree(root->right,s,t*10+root->val);
+        }
+    }
+
+    int sumNumbers(TreeNode* root) {
+        
+        int s=0;
+        tree(root,s,0);
+        return s;
+    }
+
+};
