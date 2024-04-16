@@ -1,0 +1,18 @@
+n = 6
+k = 3
+arr = [2, 3, 1, 4, 6, 7]
+i=0
+j=k-1
+l=[]
+while(j<n):
+    m=[]
+    if i==0:
+        m=arr[j+1::]
+        print(m)
+    else:
+        m=arr[:i]+arr[j+1::]
+    l.append(max(m)-min(m))
+    i+=1
+    j+=1
+print(l)
+print(min(l))
