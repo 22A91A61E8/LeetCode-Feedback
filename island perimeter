@@ -1,0 +1,19 @@
+class Solution:
+    def islandPerimeter(self, grid: List[List[int]]) -> int:
+      perimeter = 0
+      row = len(grid)
+      #print(row)
+      column = len(grid[0])
+      for i in range(row):
+          for j in range(column):
+              if grid[i][j] == 0:
+                  continue
+              # Check top row or row above for water
+              perimeter += 1 if i == 0 or grid[i - 1][j] == 0 else 0
+              # Check end row or row after for water
+              perimeter += 1 if i == row - 1 or grid[i + 1][j] == 0 else 0
+              # Check first column or column behind for water
+              perimeter += 1 if j == 0 or grid[i][j - 1] == 0 else 0
+              # Check last column or column after for water
+              perimeter += 1 if j == column - 1 or grid[i][j + 1] == 0 else 0
+      return(perimeter)
